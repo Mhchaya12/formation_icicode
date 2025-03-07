@@ -112,6 +112,6 @@ img.large{
 .success{
   color: rgb(0, 202, 0);
 }
-.faild{
+.danger{
   color: red;
 }

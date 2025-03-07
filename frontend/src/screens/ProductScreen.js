@@ -56,7 +56,7 @@ export default function ProductScreen(props) {
                   </div>
                 </li>
                 <li>
-                  <button className='primary block'> Buy Now</button>
+                  <button className='primary block'> Add to cart</button>
                 </li>
               </ul>
             </div>
