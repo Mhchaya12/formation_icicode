@@ -1,25 +1,34 @@
 import './App.css';
 import "@fortawesome/fontawesome-free/css/all.min.css"
-import data from './data';
-import Product from './components/Product';
+
 import HomeScreen from './screens/HomeScreen';
-import{BrowserRouter , Routes , Route} from 'react-router-dom';
+import{BrowserRouter , Routes , Route , Link} from 'react-router-dom';
+import { useSelector } from 'react-redux';
+import CartScreen from './screens/CartScreen';
 import ProductScreen from './screens/ProductScreen';
 function App() {
+  const cart = useSelector((state) => state.cart);
+  const {cartItems} = cart;
   return (
     <BrowserRouter>
     <div className="grid-container">
     <header className="row">
       <div>
-        <a className="brand" href="/">Smart City</a>
+        <Link className="brand" href="/">Smart City</Link>
       </div>
       <div>
-        <a href="/cart">Cart</a>
-        <a href="/signin">Sign In</a>
+        <Link to="/cart">
+                Cart
+                {cartItems.length > 0 && (
+                  <span className="badge">{cartItems.length}</span>
+                )}
+              </Link>
+        <Link to="/signin">Sign In</Link>
       </div>
     </header>
     <main>
       <Routes>
+      <Route path='/cart/:id?' element={<CartScreen/>}></Route>
         <Route path='/'element={<HomeScreen/>}></Route>
         <Route path='/product/:id'element={<ProductScreen/>}></Route>
 
