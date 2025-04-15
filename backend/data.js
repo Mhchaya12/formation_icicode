@@ -1,7 +1,17 @@
+import bcrypt from "bcryptjs";
 const data={
+    users:[
+        {
+            name:'John',
+            email:'admin@example.com',
+            password: bcrypt.hashSync('1234',8),  
+            isAdmin:true,
+        }
+
+    ],
     products:[
         {
-            _id:'1',
+           
             name:'Nike slim shirt',
             category:'Slim shirts',
             image:'/images/image1.webp',
@@ -10,10 +20,10 @@ const data={
             rating:4.5,
             numReviws:12,
             description:'high quality product',
-            CountInStock:10,
+            countInStock:10,
         },
         {
-            _id:'2',
+            
             name:'adidas',
             category:'sport shirts',
             image:'/images/image2.webp',
@@ -22,10 +32,10 @@ const data={
             rating:3,
             numReviws:12,
             description:'high quality product',
-            CountInStock:10,
+            countInStock:10,
         },
         {
-            _id:'3',
+            
             name:'champions',
             category:' shirts',
             image:'/images/image3.jpg',
@@ -34,10 +44,9 @@ const data={
             rating:2,
             numReviws:12,
             description:'high quality product',
-            CountInStock:10,
+            countInStock:10,
         },
         {
-            _id:'4',
             name:'Nike shirt',
             category:' shirts',
             image:'/images/image4.jpg',
@@ -46,10 +55,10 @@ const data={
             rating:5,
             numReviws:12,
             description:'high quality product',
-            CountInStock:10,
+            countInStock:10,
         },
         {
-            _id:'5',
+            
             name:'Nike oversize shirt',
             category:'oversize shirts',
             image:'/images/image5.jpeg',
@@ -58,10 +67,10 @@ const data={
             rating:4,
             numReviws:12,
             description:'high quality product',
-            CountInStock:10,
+            countInStock:10,
         },
         {
-            _id:'6',
+            
             name:'Nike slim shirt',
             category:'Slim shirts',
             image:'images/image6.jpg',
@@ -70,7 +79,7 @@ const data={
             rating:1,
             numReviws:12,
             description:'high quality product',
-            CountInStock:10,
+            countInStock:10,
         }
     ]
 };

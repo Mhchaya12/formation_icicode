@@ -11,12 +11,14 @@ export default function ProductScreen() {
  const  dispatch= useDispatch();
  const {id} = useParams();  
  const productId = id;
+
  const [qty, setQty] = useState(1);
 const productDetails = useSelector(state => state.productDetails);
 const {loading, error, product}=productDetails;
 useEffect(() => {
   dispatch(detailsProduct(productId))
 },[dispatch,productId])
+
 const addToCartHandler = () =>{
   navigate(`/cart/${productId}?qty=${qty}`); 
 }
@@ -59,7 +61,7 @@ const addToCartHandler = () =>{
                   <div>Status</div>
                   <div>
                  {/* TERNAIRE === if else */}
-                    {product.CountInStock>0 ? (
+                    {product.countInStock>0 ? (
                       <span className='success'>In Stock</span> 
                     ):(
                       <span className='danger'>Unvailable</span>
@@ -68,7 +70,7 @@ const addToCartHandler = () =>{
                   </div>
                 </div>
               </li>
-              {product.CountInStock > 0 && (
+              {product.countInStock > 0 && (
                      <>
                        <li>
                          <div className="row">
@@ -78,7 +80,7 @@ const addToCartHandler = () =>{
                                value={qty}
                                onChange={(e) => setQty(e.target.value)}
                              >
-                               {[...Array(product.CountInStock).keys()].map(
+                               {[...Array(product.countInStock).keys()].map(
                                  (x) => (
                                    <option key={x + 1} value={x + 1}>
                                      {x + 1}
