@@ -4,7 +4,7 @@ const data={
         {
             name:'John',
             email:'admin@example.com',
-            password: bcrypt.hashSync('1234',8),  
+            password: bcrypt.hashSync('1234',8),  //bib bcrypt "8" mta3 9adech min mara hacher 2^8 = 256
             isAdmin:true,
         }
 

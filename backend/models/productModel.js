@@ -16,4 +16,4 @@ import mongoose from 'mongoose';
    }
  );
  const Product = mongoose.model('product', productSchema);
- export default Product;
+export default Product;

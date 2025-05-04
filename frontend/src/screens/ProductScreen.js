@@ -11,14 +11,12 @@ export default function ProductScreen() {
  const  dispatch= useDispatch();
  const {id} = useParams();  
  const productId = id;
-
  const [qty, setQty] = useState(1);
 const productDetails = useSelector(state => state.productDetails);
 const {loading, error, product}=productDetails;
 useEffect(() => {
   dispatch(detailsProduct(productId))
 },[dispatch,productId])
-
 const addToCartHandler = () =>{
   navigate(`/cart/${productId}?qty=${qty}`); 
 }

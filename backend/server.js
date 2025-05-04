@@ -3,6 +3,7 @@ import mongoose from 'mongoose';
 import dotenv from 'dotenv';
 import userRouter from "./routers/userRouter.js";
 import productRouter from "./routers/productRouter.js";
+import orderRouter from './routers/orderRouter.js';
 
 dotenv.config();
 const app= express();  
@@ -28,6 +29,13 @@ mongoose.connect(process.env.MONGODB_URL ||'mongodb://localhost/formation_ici_co
    
 app.use('/api/users',userRouter);
 app.use('/api/products',productRouter);
+
+app.use('/api/config/paypal' , (req , res) =>{
+    res.send(process.env.PAYPAL_CLIENT_ID) || "sb"; //send _box 
+
+});
+app.use('/api/orders', orderRouter);
+
 
 app.get('/',(req,res)=>{
  res.send('Server is ready')
